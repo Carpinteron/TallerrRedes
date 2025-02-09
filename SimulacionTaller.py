@@ -1,4 +1,5 @@
 import random
+from fractions import Fraction
 num_experimentos=1000
 def calcular_saltos_promedio(n, num_experimentos):
     total_saltos = 0
@@ -14,7 +15,8 @@ def calcular_saltos_promedio(n, num_experimentos):
     
     # Calcular el promedio de saltos
     promedio_saltos = total_saltos / num_experimentos
-    return promedio_saltos
+    prom_frac=Fraction(total_saltos, num_experimentos)
+    return promedio_saltos, prom_frac
 
 # Tamaños de red a simular
 tamanos_red = [10, 100, 1000]
@@ -22,4 +24,5 @@ tamanos_red = [10, 100, 1000]
 # Realizar la simulación para cada tamaño de red
 for n in tamanos_red:
     promedio = calcular_saltos_promedio(n, num_experimentos)
-    print(f"Para una red de {n} nodos, el promedio de saltos es: {promedio}")
+    print(f"\nPara una red de {n} nodos, el promedio de saltos es: {promedio[0]} o {promedio[1]}")
+    
