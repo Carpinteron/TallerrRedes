@@ -1,18 +1,25 @@
-import random, itertools
-n=int(input('Valor para n: '))
-'''
-creo que hay que usar un itertool para todas las combinaciones posibles de A y B
-de distancia entre 0 y n
-'''
-prom=0
-for i in range(0,n): 
-    A=random.randint(0,n) # 0 n
-    B=random.randint(0,n) # 0 a n
-    distancia=abs(A-B)
-    prom=prom+distancia
-prom=prom/n
+import random
+num_experimentos=1000
+def calcular_saltos_promedio(n, num_experimentos):
+    total_saltos = 0
+    for _ in range(num_experimentos):
+        # Seleccionar dos nodos diferentes A y B
+        A, B = random.sample(range(n), 2)
+        
+        # Calcular la distancia (número de saltos) entre A y B
+        saltos = abs(A - B)
+        
+        # Sumar al total de saltos
+        total_saltos += saltos
+    
+    # Calcular el promedio de saltos
+    promedio_saltos = total_saltos / num_experimentos
+    return promedio_saltos
 
-print('Promedio de distancia: ',prom)
-'''
-Probar con 10, 100, 1000 y mas de 1000 so digo que 2000?
-'''
+# Tamaños de red a simular
+tamanos_red = [10, 100, 1000]
+
+# Realizar la simulación para cada tamaño de red
+for n in tamanos_red:
+    promedio = calcular_saltos_promedio(n, num_experimentos)
+    print(f"Para una red de {n} nodos, el promedio de saltos es: {promedio}")
