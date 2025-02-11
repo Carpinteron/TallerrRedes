@@ -60,4 +60,3 @@ plt.xticks(tamanos_red) # Asegurarse de que todos los tamaños de red estén en 
 plt.grid(True, linestyle='--', alpha=0.7) # Mejorar la visualización de la cuadrícula
 plt.tight_layout() # Ajustar el layout para que todo se vea bien
 plt.show()
-"""

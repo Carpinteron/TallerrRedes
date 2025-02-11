@@ -34,8 +34,8 @@ for n in tamanos_red:
 
     #print(F"Promedio teórico: {(n+1)/3}")
 
-#GRAFICAS
-# Gráfico de líneas
+
+# Crear gráfico de líneas
 plt.plot(tamanos_red, promedios, marker='o', linestyle='-', color='b', label='Promedio de saltos')
 
 # Personalizar el gráfico
@@ -49,15 +49,14 @@ plt.legend()  # Muestra la leyenda
 # Mostrar el gráfico
 plt.show()
 
-"""
+
 # Graficar los resultados como dispersión
 plt.figure(figsize=(10, 6)) # Ajustar el tamaño de la figura
 plt.scatter(tamanos_red, promedios, color='b', alpha=0.7)
 plt.xlabel('Tamaño de la red (n)')
-plt.ylabel('Promedio de saltos')
+plt.ylabel('Promedio de saltos', fontsize=12)
 plt.title('Promedio de saltos vs Tamaño de la red')
 plt.xticks(tamanos_red) # Asegurarse de que todos los tamaños de red estén en el eje x
 plt.grid(True, linestyle='--', alpha=0.7) # Mejorar la visualización de la cuadrícula
 plt.tight_layout() # Ajustar el layout para que todo se vea bien
 plt.show()
-"""

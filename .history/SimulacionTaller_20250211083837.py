@@ -23,7 +23,7 @@ def calcular_saltos_promedio(n, num_experimentos): # función para calcular el p
 # Tamaños de red a simular
 tamanos_red = [10, 100, 1000] # 10 pequeño - 100 mediano - 1000 grande
 
-# Lista para almacenar los resultados
+# Listas para almacenar los resultados
 promedios = []
 
 # Realizar la simulación para cada tamaño de red
@@ -31,11 +31,12 @@ for n in tamanos_red:
     promedio = calcular_saltos_promedio(n, num_experimentos)
     print(f"\nPara una red de {n} nodos, el promedio de saltos es: {promedio[0]} o {promedio[1]}")
     promedios.append(promedio[0])
+    tamanos.append(n)
 
     #print(F"Promedio teórico: {(n+1)/3}")
 
-#GRAFICAS
-# Gráfico de líneas
+# Grafica
+# Crear gráfico de líneas
 plt.plot(tamanos_red, promedios, marker='o', linestyle='-', color='b', label='Promedio de saltos')
 
 # Personalizar el gráfico
@@ -49,15 +50,27 @@ plt.legend()  # Muestra la leyenda
 # Mostrar el gráfico
 plt.show()
 
-"""
+# De barras
+# Crear gráfico de barras
+plt.bar(tamanos, promedios, color='skyblue')
+
+# Personalizar el gráfico
+plt.title('Promedio de saltos en función del tamaño de la red')
+plt.xlabel('Tamaño de la red (n)')
+plt.ylabel('Promedio de saltos')
+plt.xticks(tamanos)  # Mostrar todos los valores en el eje X
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Mostrar el gráfico
+plt.show()
+
 # Graficar los resultados como dispersión
 plt.figure(figsize=(10, 6)) # Ajustar el tamaño de la figura
-plt.scatter(tamanos_red, promedios, color='b', alpha=0.7)
+plt.scatter(tamanos, promedios, color='b', alpha=0.7)
 plt.xlabel('Tamaño de la red (n)')
 plt.ylabel('Promedio de saltos')
 plt.title('Promedio de saltos vs Tamaño de la red')
-plt.xticks(tamanos_red) # Asegurarse de que todos los tamaños de red estén en el eje x
+plt.xticks(tamanos) # Asegurarse de que todos los tamaños de red estén en el eje x
 plt.grid(True, linestyle='--', alpha=0.7) # Mejorar la visualización de la cuadrícula
 plt.tight_layout() # Ajustar el layout para que todo se vea bien
 plt.show()
-"""
